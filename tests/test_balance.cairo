@@ -73,7 +73,7 @@ func test_utils{syscall_ptr: felt*, range_check_ptr}() {
 
     local value;
     %{
-        from helpers import ret_1
+        from helpers.helper import ret_1
         value = ret1();
     %}
     Balance.increase_balance(contract_address=contract_address, amount=Uint256(value, 0));

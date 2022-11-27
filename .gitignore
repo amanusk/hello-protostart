@@ -7,3 +7,5 @@ env
 venv
 
 profile.pb.gz
+
+__pycache__
