@@ -1,0 +1,11 @@
+[project]
+protostar-version = "0.8.1"
+lib-path = "lib"
+
+cairo-path = ["lib/cairo_contracts/src"]
+
+[contracts]
+main = ["src/balance.cairo"]
+
+[test]
+disable-hint-validation = true
