@@ -9,3 +9,4 @@ venv
 profile.pb.gz
 
 __pycache__
+*.pyc

@@ -65,20 +65,14 @@ func test_utils{syscall_ptr: felt*, range_check_ptr}() {
     assert res.low = 150;
     assert res.high = 0;
 
-    // Play around with cheatcodes to mock functionality/state
-    %{ mock_call(ids.contract_address, "get_balance", [17, 38]) %}
-    let (res) = Balance.get_balance(contract_address);
-    assert res.low = 17;
-    assert res.high = 38;
-
-    local value;
+    local value: felt;
     %{
-        from helpers.helper import ret_1
-        value = ret1();
+        from utils.helper import ret_1
+        ids.value = 150 + ret_1()
     %}
     Balance.increase_balance(contract_address=contract_address, amount=Uint256(value, 0));
     let (res) = Balance.get_balance(contract_address=contract_address);
-    assert res.low = 151;
+    assert res.low = 301;
     assert res.high = 0;
 
     return ();
